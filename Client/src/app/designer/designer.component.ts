@@ -20,6 +20,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { PropertiesDialogComponent } from './dialogs/properties-dialog/properties-dialog.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import toolbarItemsData from '../../assets/json/toolbar.json';
+import measureBoxMenu from '../../assets/json/measure-box-menu.json';
 import * as fromRoot from '../store/reducers/index';
 import { WebSocketService } from '../core/services/web-socket.service';
 import { Subject } from 'rxjs';
@@ -90,6 +91,7 @@ export class DesignerComponent implements OnInit, AfterViewInit, OnDestroy {
   diagramId: string = null;  
   currentDiagram: Diagram;
   undoManager: mxgraph.mxUndoManager;
+  private copiedMeasureBoxStyle: { [k: string]: any } | null = null;
 
   private destroy$ = new Subject();
 
@@ -489,18 +491,32 @@ export class DesignerComponent implements OnInit, AfterViewInit, OnDestroy {
 
     // enable right click popup.
     this.graph.popupMenuHandler.factoryMethod = (menu: mxgraph.mxPopupMenu, cell: mxgraph.mxCell, evt: Event) => {
-      if (this.mode === this.DESIGNER_CONST.SELECT_MODE) {
-        if (cell && (cell.vertex || cell.edge)) {
-          menu.addItem('Remove', null, () => {                        
-            this.graph.removeCells();
+      if (this.mode !== this.DESIGNER_CONST.SELECT_MODE) {
+        return;
+      }
+      if (!cell || !(cell.vertex || cell.edge)) {
+        return;
+      }
+
+      // Common actions
+      menu.addItem('Remove', null, () => {
+        this.graph.removeCells();
+      });
+      menu.addItem('Send to Front', null, () => {
+        this.graph.orderCells(false, [cell]);
+      });
+      menu.addItem('Send to Back', null, () => {
+        this.graph.orderCells(true, [cell]);
+      });
+
+      // Measure Box specific actions
+      if (this.isMeasureBox(cell)) {
+        menu.addSeparator();
+        (measureBoxMenu as any[]).forEach(item => {
+          menu.addItem(item.label, null, () => {
+            this.handleMeasureBoxMenuAction(item.action, cell, item.params);
           });
-          menu.addItem('Send to Front', null, () => {                        
-            this.graph.orderCells(false, [cell]);
-          });
-          menu.addItem('Send to Back', null, () => {                        
-            this.graph.orderCells(true, [cell]);
-          });
-        }
+        });
       }
     };
 
@@ -546,6 +562,62 @@ export class DesignerComponent implements OnInit, AfterViewInit, OnDestroy {
     } finally {
       this.graph.getModel().endUpdate();
     }    
+  }
+
+  private handleMeasureBoxMenuAction(action: string, cell: mxgraph.mxCell, params?: any) {
+    switch (action) {
+      case 'openProperties': {
+        const bounds = this.graph.getCellBounds(cell);
+        const x = bounds.x + bounds.width + 10;
+        const y = bounds.y;
+        this.openDialog(x, y, cell);
+        break;
+      }
+      case 'duplicate': {
+        const parent = this.graph.getDefaultParent();
+        const model = this.graph.getModel();
+        model.beginUpdate();
+        try {
+          const geo = (cell.geometry) ? cell.geometry.clone() : null;
+          const value = JSON.parse(JSON.stringify(model.getValue(cell)));
+          const clone = this.graph.insertVertex(parent, this.idGenerator(), value, geo ? geo.x + 20 : 0, geo ? geo.y + 20 : 0, geo ? geo.width : 100, geo ? geo.height : 100, cell.style);
+          this.graph.setSelectionCell(clone);
+        } finally {
+          model.endUpdate();
+        }
+        break;
+      }
+      case 'toggleFill': {
+        const current = this.graph.model.getValue(cell);
+        const userObject = { ...current.userObject };
+        const def = params && params.color ? params.color : '#f5f5f5';
+        userObject.backgroundColor = userObject.backgroundColor ? '' : def;
+        this.graph.model.setValue(cell, { ...current, userObject });
+        break;
+      }
+      case 'copyStyle': {
+        const current = this.graph.model.getValue(cell);
+        this.copiedMeasureBoxStyle = {
+          fontSize: current.userObject?.fontSize,
+          fontStyle: current.userObject?.fontStyle,
+          textAlign: current.userObject?.textAlign,
+          foreColor: current.userObject?.foreColor,
+          backgroundColor: current.userObject?.backgroundColor,
+          containerWidth: current.userObject?.containerWidth,
+          containerHeight: current.userObject?.containerHeight
+        };
+        break;
+      }
+      case 'pasteStyle': {
+        if (!this.copiedMeasureBoxStyle) { return; }
+        const current = this.graph.model.getValue(cell);
+        const userObject = { ...current.userObject, ...this.copiedMeasureBoxStyle };
+        this.graph.model.setValue(cell, { ...current, userObject });
+        break;
+      }
+      default:
+        break;
+    }
   }
 
   private openMeasureBoxDialog(cell: mxgraph.mxCell, x: number, y: number) {
