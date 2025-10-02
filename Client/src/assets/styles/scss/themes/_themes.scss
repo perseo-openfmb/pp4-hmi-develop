@@ -1,0 +1,8 @@
+@import '@angular/material/theming';
+@include mat-core();
+
+// Keep atleast one file
+@import "hmi-navy";
+
+$background: map-get($hmi-theme, background);
+$foreground: map-get($hmi-theme, foreground);

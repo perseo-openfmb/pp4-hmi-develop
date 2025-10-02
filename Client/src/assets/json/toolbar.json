@@ -1,0 +1,1301 @@
+[   
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/switch-horizontal-open.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Switch horizontal",
+    "left": 0,
+    "top": 0,
+    "type": "switch-horizontal"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/switch-vertical-open.svg",
+    "points": [
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Switch vertical",
+    "left": 0,
+    "top": 0,
+    "type": "switch-vertical"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/transformer-vertical.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Transformer horizontal",
+    "left": 0,
+    "top": 0,
+    "type": "tranformer"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/transformer-horizontal.svg",
+    "points": [
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Transformer vertical",
+    "left": 0,
+    "top": 0,
+    "type": "tranformer"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/voltage-regulator-vertical.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Voltage Regulator horizontal",
+    "left": 0,
+    "top": 0,
+    "type": "regulator"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/voltage-regulator-horizontal.svg",
+    "points": [
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Voltage Regulator vertical",
+    "left": 0,
+    "top": 0,
+    "type": "regulator"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/solar-pv-horizontal1.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Solar PV horizontal",
+    "left": 0,
+    "top": 0,
+    "type": "solar"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/solar-pv-horizontal2.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Solar PV horizontal",
+    "left": 0,
+    "top": 0,
+    "type": "solar"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/solar-pv-vertical1.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Solar PV vertical",
+    "left": 0,
+    "top": 0,
+    "type": "solar"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/solarpv-vertical2.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Solar PV vertical",
+    "left": 0,
+    "top": 0,
+    "type": "solar"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/battery-ess-horizontal1.svg",
+    "points": [
+      [0, 0.5]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Battery Energy Storage System (ESS) horizontal",
+    "left": 0,
+    "top": 0,
+    "type": "ess"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/battery-ess-horizontal2.svg",
+    "points": [      
+      [1, 0.5]      
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Battery Energy Storage System (ESS) horizontal",
+    "left": 0,
+    "top": 0,
+    "type": "ess"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/battery-ess-vertical1.svg",
+    "points": [
+      [0.5, 0]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Battery Energy Storage System (ESS) vertical",
+    "left": 0,
+    "top": 0,
+    "type": "ess"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/battery-ess-vertical2.svg",
+    "points": [
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Battery Energy Storage System (ESS) vertical",
+    "left": 0,
+    "top": 0,
+    "type": "ess"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/ground.svg",
+    "points": [
+      [0.5, 0]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Ground",
+    "left": 0,
+    "top": 0,
+    "type": "ground"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/generator.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Generator",
+    "left": 0,
+    "top": 0,
+    "type": "generator"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/motor.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Motor",
+    "left": 0,
+    "top": 0,
+    "type": "motor"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/uncontrolled-load.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Uncontrolled Load",
+    "left": 0,
+    "top": 0,
+    "type": "load"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/controllable-load.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Controllable Load",
+    "left": 0,
+    "top": 0,
+    "type": "controllable-load"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/circuit-breaker-horizontal.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Circuit Breaker horizontal",
+    "left": 0,
+    "top": 0,
+    "type": "breaker"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/circuit-breaker-vertical.svg",
+    "points": [
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Circuit Breaker vertical",
+    "left": 0,
+    "top": 0,
+    "type": "breaker"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/recloser-horizontal.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Recloser horizontal",
+    "left": 0,
+    "top": 0,
+    "type": "recloser"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/recloser-vertical.svg",
+    "points": [
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Recloser vertical",
+    "left": 0,
+    "top": 0,
+    "type": "recloser"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/capacitor-bank-horizontal.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Capacitor Bank horizontal",
+    "left": 0,
+    "top": 0,
+    "type": "capbank"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/capacitor-bank-vertical.svg",
+    "points": [
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Capacitor Bank vertical",
+    "left": 0,
+    "top": 0,
+    "type": "capbank"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/horizontal-line-svgrepo-com.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5]     
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Connection Line Horizontal",
+    "left": 0,
+    "top": 0,
+    "type": "line"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/vertical-line-svgrepo-com.svg",
+    "points": [
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Connection Line Vertical",
+    "left": 0,
+    "top": 0,
+    "type": "line"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/dot.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "pointPerimeter": false,
+    "title": "Line Connector Point",
+    "width": 5,
+    "height": 5,
+    "label": false,
+    "left": -2,
+    "top": -2.4,
+    "type": "connector-point"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/measure-box.svg",
+    "points": [
+    ],
+    "pointPerimeter": false,
+    "title": "Measure Box",
+    "width": 1,
+    "height": 1,    
+    "left": 0,
+    "top": 0,
+    "type": "measure-box",
+    "isEditable": false
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/feeder.svg",
+    "points": [
+      [0.5, 0]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Feeder",
+    "left": 0,
+    "top": 0,
+    "type": "source"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/breaker.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Breaker",
+    "left": 0,
+    "top": 0,
+    "type": "breaker"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/recloser.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Recloser",
+    "left": 0,
+    "top": 0,
+    "type": "recloser"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/converter.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Converter DC-DC",
+    "left": 0,
+    "top": 0,
+    "type": "converter"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/converter-ac.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Converter AC-DC",
+    "left": 0,
+    "top": 0,
+    "type": "converter"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/converter-dc.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Converter DC-AC",
+    "left": 0,
+    "top": 0,
+    "type": "converter"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/solar-farm.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Solar Farm",
+    "left": 0,
+    "top": 0,
+    "type": "solar"    
+  },
+  {
+    "shape": "text",
+    "image": "assets/images/toolbar/text.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Label",
+    "left": 0,
+    "top": 0,
+    "type": "label"  
+  },
+  {
+    "shape": "state-indicator",
+    "image": "assets/images/toolbar/indicator.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 80,
+    "height": 40,
+    "title": "State Indicator/Control",
+    "left": 0,
+    "top": 0,
+    "type": "state-indicator"  
+  },
+  {
+    "shape": "button",
+    "image": "assets/images/toolbar/button.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 80,
+    "height": 40,
+    "title": "Link Button",
+    "left": 0,
+    "top": 0,
+    "type": "button"  
+  },  
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/regulator.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "Voltage Regulator",
+    "left": 0,
+    "top": 0,
+    "type": "regulator"
+  },
+  {
+    "shape": "line",
+    "image": "assets/images/toolbar/line.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 80,
+    "height": 80,
+    "title": "Line",
+    "left": 0,
+    "top": 0,
+    "type": "line"
+  },
+  {
+    "shape": "curve",
+    "image": "assets/images/toolbar/curve.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 80,
+    "height": 80,
+    "title": "Curve",
+    "left": 0,
+    "top": 0,
+    "type": "curve"
+  },
+  {
+    "shape": "rectangle",
+    "image": "assets/images/toolbar/rectangle2.svg",
+    "points": [],
+    "width": 80,
+    "height": 40,
+    "title": "Rectangle",
+    "left": 0,
+    "top": 0,
+    "type": "rectangle"   
+  },     
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/arrow-east.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 80,
+    "height": 80,
+    "title": "Arrow (East)",
+    "left": 0,
+    "top": 0,
+    "type": "arrow"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/arrow-west.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 80,
+    "height": 80,
+    "title": "Arrow (West)",
+    "left": 0,
+    "top": 0,
+    "type": "arrow"    
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/arrow-south.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 80,
+    "height": 80,
+    "title": "Arrow (South)",
+    "left": 0,
+    "top": 0,
+    "type": "arrow"    
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/arrow-north.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 80,
+    "height": 80,
+    "title": "Arrow (North)",
+    "left": 0,
+    "top": 0,
+    "type": "arrow"    
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/arrow-ne.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 80,
+    "height": 80,
+    "title": "Arrow (NE)",
+    "left": 0,
+    "top": 0,
+    "type": "arrow"    
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/arrow-se.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 80,
+    "height": 80,
+    "title": "Arrow (SE)",
+    "left": 0,
+    "top": 0,
+    "type": "arrow"    
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/arrow-nw.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 80,
+    "height": 80,
+    "title": "Arrow (NW)",
+    "left": 0,
+    "top": 0,
+    "type": "arrow"    
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/arrow-sw.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 80,
+    "height": 80,
+    "title": "Arrow (SW)",
+    "left": 0,
+    "top": 0,
+    "type": "arrow"    
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/flow-east-red.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]      
+    ],
+    "width": 320,
+    "height": 40,
+    "title": "Flow (east)",
+    "left": 0,
+    "top": 0,
+    "type": "flow"    
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/flow-west-red.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 320,
+    "height": 40,
+    "title": "Flow (West)",
+    "left": 0,
+    "top": 0,
+    "type": "flow"    
+  },  
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/flow-south-red.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 320,
+    "title": "Flow (South)",
+    "left": 0,
+    "top": 0,
+    "type": "flow"    
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/flow-north-red.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 320,
+    "title": "Flow (North)",
+    "left": 0,
+    "top": 0,
+    "type": "flow"    
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/flow-ne-red.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 240,
+    "height": 240,
+    "title": "Flow (NE)",
+    "left": 0,
+    "top": 0,
+    "type": "flow"    
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/flow-nw-red.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 240,
+    "height": 240,
+    "title": "Flow (NW)",
+    "left": 0,
+    "top": 0,
+    "type": "flow"    
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/flow-se-red.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 240,
+    "height": 240,
+    "title": "Flow (SE)",
+    "left": 0,
+    "top": 0,
+    "type": "flow"    
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/flow-sw-red.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 240,
+    "height": 240,
+    "title": "Flow (SW)",
+    "left": 0,
+    "top": 0,
+    "type": "flow"    
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/substation.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 80,
+    "height": 80,
+    "title": "Substation",
+    "left": 0,
+    "top": 0    
+  },   
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/gas.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 80,
+    "height": 80,
+    "title": "Gas Generator",
+    "left": 0,
+    "top": 0,
+    "type": "generator"    
+  },  
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/tower.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 80,
+    "height": 80,
+    "title": "Tower",
+    "left": 0,
+    "top": 0    
+  }, 
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/solar.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 80,
+    "height": 80,
+    "title": "Solar Panel",
+    "left": 0,
+    "top": 0,
+    "type": "solar"    
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/power.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 80,
+    "height": 80,
+    "title": "Power Plant",
+    "left": 0,
+    "top": 0,
+    "type": "source"    
+  },    
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/wind.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 80,
+    "height": 80,
+    "title": "Wind Farm",
+    "left": 0,
+    "top": 0,
+    "type": "wind"    
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/ess.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 80,
+    "height": 80,
+    "title": "Energy Storage",
+    "left": 0,
+    "top": 0,
+    "type": "ess"    
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/battery-100.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 80,
+    "title": "Battery",
+    "left": 0,
+    "top": 0,
+    "type": "battery"
+  }, 
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/battery-horizontal-100.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 80,
+    "height": 40,
+    "title": "Battery (Horizontal)",
+    "left": 0,
+    "top": 0,
+    "type": "battery-horizontal"    
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/battery3d-100.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 80,
+    "height": 160,
+    "title": "Battery (3D)",
+    "left": 0,
+    "top": 0,
+    "type": "battery3d"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/substation-isometric.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 80,
+    "height": 80,
+    "title": "Substation",
+    "left": 0,
+    "top": 0    
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/weather.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 80,
+    "height": 80,
+    "title": "Weather",
+    "left": 0,
+    "top": 0,
+    "type": "weather"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/base.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 240,
+    "height": 240,
+    "title": "Base",
+    "left": 0,
+    "top": 0    
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/solar-large.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 240,
+    "height": 240,
+    "title": "Solar",
+    "left": 0,
+    "top": 0,
+    "type": "solar"    
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/generator-large.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 240,
+    "height": 240,
+    "title": "Generator",
+    "left": 0,
+    "top": 0,
+    "type": "generator"    
+  },  
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/battery.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 240,
+    "height": 240,
+    "title": "Battery",
+    "left": 0,
+    "top": 0,
+    "type": "ess"    
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/building.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 240,
+    "height": 240,
+    "title": "Building",
+    "left": 0,
+    "top": 0    
+  }, 
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/warehouse.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 240,
+    "height": 240,
+    "title": "Warehouse",
+    "left": 0,
+    "top": 0    
+  }, 
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/home.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 240,
+    "height": 240,
+    "title": "House",
+    "left": 0,
+    "top": 0    
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/loadbank.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 240,
+    "height": 240,
+    "title": "Controllable Load",
+    "left": 0,
+    "top": 0,
+    "type": "controllable-load"    
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/pcc-closed.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 240,
+    "height": 240,
+    "title": "PCC (Connected/Islanded)",
+    "left": 0,
+    "top": 0,
+    "type": "pcc"    
+  }, 
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/button-pcc-closed.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 200,
+    "height": 80,
+    "title": "Button (Connected/Islanded)",
+    "left": 0,
+    "top": 0,
+    "type": "button-pcc"    
+  }, 
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/pad-mounted-xfmr.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 240,
+    "height": 240,
+    "title": "Pad-mounted Transformer",
+    "left": 0,
+    "top": 0,
+    "type": "transformer"        
+  },  
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/ev.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 240,
+    "height": 240,
+    "title": "EV",
+    "left": 0,
+    "top": 0,
+    "type": "ev"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/OES-full.svg",
+    "points": [
+      [0, 0.5]
+    ],
+    "width": 80,
+    "height": 40,
+    "title": "OES Logo 1",
+    "left": 0,
+    "top": 0,
+    "type": ""
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/OES-stamp.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 40,
+    "height": 40,
+    "title": "OES Logo 2",
+    "left": 0,
+    "top": 0,
+    "type": ""
+  }
+]

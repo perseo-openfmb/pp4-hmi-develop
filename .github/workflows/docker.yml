@@ -1,0 +1,103 @@
+name: CI to Docker Hub
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: build docker image
+    if: github.event_name == 'push' && github.ref != 'refs/heads/develop'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      DOCKER_REPO: "oesinc/openfmb.hmi"
+    steps:
+      - name: Git sha
+        uses: benjlevesque/short-sha@v2.1
+        id: git-sha
+        with:
+          length: 8
+
+      - name: Checkout code with submodules
+        uses: actions/checkout@v4             
+
+      - name: Setup Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./Dockerfile
+          platforms: linux/amd64,linux/arm64
+          no-cache: true
+          push: false
+          labels: |
+            com.openenergysolutions/signed=true
+          tags: ${{ env.DOCKER_REPO }}:latest,${{ env.DOCKER_REPO }}:${{ steps.git-sha.outputs.sha }}
+
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
+
+  build_and_push:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/develop' && startsWith(github.event.head_commit.message, 'Merge pull request')
+    name: build and push docker image
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      DOCKER_REPO: "oesinc/openfmb.hmi"
+    steps:
+      - name: Git sha
+        uses: benjlevesque/short-sha@v2.1
+        id: git-sha
+        with:
+          length: 8
+
+      - name: Checkout code with submodules
+        uses: actions/checkout@v4        
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+
+      - name: Setup Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./Dockerfile
+          platforms: linux/amd64,linux/arm64
+          no-cache: true
+          push: true
+          labels: |
+            com.openenergysolutions/signed=true
+          tags: ${{ env.DOCKER_REPO }}:latest,${{ env.DOCKER_REPO }}:${{ steps.git-sha.outputs.sha }}
+
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
+
+      - name: cosign
+        uses: sigstore/cosign-installer@main    
+  
+      - name: Sign Image with Cosign for sha tag
+        env:
+          COSIGN_EXPERIMENTAL: "1"
+        run: |        
+          cosign sign --yes --rekor-url "https://rekor.sigstore.dev/" ${{ env.DOCKER_REPO }}@${{ steps.docker_build.outputs.digest }}
+      
+      - name: Verify the image signing
+        run: |
+          cosign verify \
+          --rekor-url "https://rekor.sigstore.dev/" ${{ env.DOCKER_REPO }}@${{ steps.docker_build.outputs.digest }} \
+          --certificate-identity "https://github.com/openenergysolutions/${{ github.event.repository.name }}/.github/workflows/docker.yml@refs/heads/develop" \
+          --certificate-oidc-issuer "https://token.actions.githubusercontent.com" | jq .

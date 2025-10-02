@@ -1,0 +1,277 @@
+<form #f="ngForm">
+  <mat-tab-group mat-align-tabs="start">
+    <mat-tab label="Properties">
+      <div mat-dialog-content class="dialog-input-container pt-1">
+        <strong>Name</strong><br />
+        <mat-form-field class="designer-form-field" floatLabel='never'>          
+          <mat-select [(value)]="selectedEquipment" name="select-equipment">
+            <mat-option *ngFor="let option of equipmentList" [value]="option">
+              {{option.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div> 
+      <div mat-dialog-content class="dialog-input-container">
+        <strong>mRID</strong><br />
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <input matInput [(ngModel)]="selectedEquipment.mrid" placeholder="Enter Device mRID" [disabled]="false" name="symbol-mrid" />          
+        </mat-form-field>
+      </div>
+      <div mat-dialog-content class="dialog-input-container pt-1">
+        <strong>Description</strong><br />
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <input matInput [(ngModel)]="description" placeholder="Brief description (Optional)" name="symbol-desc" />
+        </mat-form-field>
+      </div>     
+      <div mat-dialog-content class="dialog-input-container pt-1">
+        <strong>Label</strong><br />
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <input matInput [(ngModel)]="label" placeholder="Enter label" name="symbol-label" />
+        </mat-form-field>
+      </div>      
+    </mat-tab>
+    <mat-tab label="Type" *ngIf="linkAllowed">
+      <div mat-dialog-content class="dialog-input-container pt-1">
+        <mat-radio-group [(value)]="buttonFunction">
+          <mat-radio-button *ngFor="let option of buttonFunctionOptions" [value]="option" (change)="buttonFunctionChanged($event)">{{option}}</mat-radio-button>          
+        </mat-radio-group>
+      </div>
+      <hr/>
+      <div mat-dialog-content class="dialog-input-container pt-1" *ngIf="showLink">
+        <strong>Navigate To</strong><br />
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <mat-select [(ngModel)]="selectedDiagramId" name="selectDiagram" (selectionChange)="onSelectLinkChange($event.value)">
+            <mat-option *ngFor="let option of diagrams" [value]="option.diagramId">
+              {{option.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div mat-dialog-content class="dialog-input-container pt-1" *ngIf="showExternalLink">
+        <strong>External Link</strong><br />
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <input matInput [(ngModel)]="externalLink" placeholder="external link" name="external-link" />
+        </mat-form-field>
+      </div>
+      <div mat-dialog-content class="dialog-input-container pt-1" *ngIf="showLink">
+        <strong>Target</strong><br />
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <mat-select [(ngModel)]="selectedLinkTarget" name="select=diagram">
+            <mat-option *ngFor="let option of linkTargetOptions" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div mat-dialog-content class="dialog-input-container pt-1" *ngIf="!showLink">
+        <strong>Select Command</strong><br />
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <mat-select [(value)]="selectedCommand" name="select=diagram">
+            <mat-option *ngFor="let option of commandList" [value]="option.attributes.name">
+              {{option.attributes.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-tab>
+    <mat-tab label="Data Connection" *ngIf="dataConnectAllowed">
+      <div class="selected-section">
+        <app-properties-select-section [sectionLabel]="displayDataLabel" [fields]="displayData">
+        </app-properties-select-section>
+      </div>
+      <div class="selected-section">
+        <app-properties-select-section [sectionLabel]="controlDataLabel" [fields]="controlData">
+        </app-properties-select-section>
+      </div>
+      <div class="selected-section">
+        <app-properties-select-section [sectionLabel]="visibilityDataLabel" [fields]="visibilityData">
+        </app-properties-select-section>
+      </div>
+    </mat-tab>
+    <mat-tab label="Status Definition" *ngIf="statusDefinitionAllowed">
+      <button mat-raised-button (click)="addStatusDefinition()" style="margin-top:15px;" cdkFocusInitial>
+        Add
+      </button>
+      <div style="min-height: 300px;max-height: 300px;overflow: auto;">
+        <div *ngFor="let item of statusDefinitions; let i = index">          
+          <div fxLayout="row">
+            <mat-form-field fxFlex="15" class="designer-line-form-field" floatLabel='never'>
+              <div style="padding-right: 10px;">
+                <input type="number" [(ngModel)]="statusDefinitions[i].value" min="0" max="65535" matInput name="input-status{{i}}"
+                  placeholder="Value" *ngIf="isStatusDefinitionNumericDataType" />
+                <input [(ngModel)]="statusDefinitions[i].value" matInput name="input-status{{i}}"
+                  placeholder="Value" *ngIf="!isStatusDefinitionNumericDataType" />
+              </div>
+            </mat-form-field>
+            <mat-form-field fxFlex="25" class="designer-line-form-field" floatLabel='never'>
+              <div style="padding-right: 10px;">
+                <mat-select [(value)]="statusDefinitions[i].color" name="input-color">
+                  <mat-option *ngFor="let option of statusColors" [value]="option">
+                    {{option}}
+                  </mat-option>
+                </mat-select>  
+              </div>
+            </mat-form-field>
+            <mat-form-field fxFlex="45" class="designer-form-field" floatLabel='never'>
+              <input matInput [(ngModel)]="statusDefinitions[i].text" placeholder="Caption" name="input-text{{i}}" />
+            </mat-form-field>    
+            <div fxFlex="3">
+              <button mat-icon-button aria-label="Delete" style="cursor: pointer;padding-top: 10px !important;" (click)="removeStatusDefinition(item)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>          
+          </div>        
+        </div> 
+      </div>           
+    </mat-tab>
+
+    <mat-tab label="Weather Definition" *ngIf="weatherDefinitionAllowed">
+      <button mat-raised-button (click)="addWeatherDefinition()" style="margin-top:15px;" cdkFocusInitial>
+        Add
+      </button>
+      <div style="min-height: 300px;max-height: 300px;overflow: auto;">
+        <div *ngFor="let item of weatherDefinitions; let i = index">          
+          <div fxLayout="row">
+            <mat-form-field fxFlex="25" class="designer-line-form-field" floatLabel='never'>
+              <div style="padding-right: 10px;">
+                <mat-select [(value)]="weatherDefinitions[i].text" name="input-text">
+                  <mat-option *ngFor="let option of weatherConditions" [value]="option">
+                    {{option}}
+                  </mat-option>
+                </mat-select>  
+              </div>
+            </mat-form-field>
+            <mat-form-field fxFlex="30" class="designer-line-form-field" floatLabel='never'>
+              <input type="number" [(ngModel)]="weatherDefinitions[i].from" style="margin-right: 5px;" min="0" max="65535" matInput name="weather-status-from{{i}}"
+                  placeholder="From" />
+            </mat-form-field>
+            <mat-form-field fxFlex="30" class="designer-line-form-field" floatLabel='never'>
+              <input type="number" [(ngModel)]="weatherDefinitions[i].to" min="0" max="65535" matInput name="weather-status-to{{i}}"
+                  placeholder="To" />
+            </mat-form-field>                           
+            <div fxFlex="5">
+              <button mat-icon-button aria-label="Delete" style="cursor: pointer;padding-top: 10px !important;" (click)="removeWeatherDefinition(item)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>          
+          </div>        
+        </div> 
+      </div>      
+    </mat-tab>
+    
+    <mat-tab label="Flow Definition" *ngIf="flowDefinitionAllowed">      
+      <div mat-dialog-content class="dialog-input-container pt-1" style="min-height: 300px;max-height: 300px;overflow: auto;">
+        <strong>Positive measurement</strong><br />
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <mat-select [(ngModel)]="arrowDirection.positive" name="select=positive">
+            <mat-option *ngFor="let option of arrowDirections" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-select>  
+        </mat-form-field>
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <mat-select [(ngModel)]="arrowDirection.positiveColor" name="select=positiveColor">
+            <mat-option *ngFor="let option of arrowColors" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-select>  
+        </mat-form-field>
+        <br />
+        <strong>Negative measurement</strong><br />
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <mat-select [(ngModel)]="arrowDirection.negative" name="select=negative">
+            <mat-option *ngFor="let option of arrowDirections" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-select>  
+        </mat-form-field>
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <mat-select [(ngModel)]="arrowDirection.negativeColor" name="select=negativeColor">
+            <mat-option *ngFor="let option of arrowColors" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-select>  
+        </mat-form-field>
+        <br />
+        <strong>Zero measurement</strong><br />
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <mat-select [(ngModel)]="arrowDirection.neutral" name="select=neutral">
+            <mat-option *ngFor="let option of arrowDirections" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-select>  
+        </mat-form-field>
+      </div>           
+    </mat-tab>
+    
+    <mat-tab label="Styles" *ngIf="changeStyleAllowed">
+      <div mat-dialog-content class="dialog-input-container pt-1" *ngIf="changeWidthAllowed">
+        <strong>Container Width</strong><br />
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <input type="number" [(ngModel)]="containerWidth" class="form-control" min="0" max="500" matInput
+            name="container-width" placeholder="width (in px)">
+        </mat-form-field>
+      </div>
+      <div mat-dialog-content class="dialog-input-container pt-1" *ngIf="changeWidthAllowed">
+        <strong>Container Height</strong><br />
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <input type="number" [(ngModel)]="containerHeight" class="form-control" min="0" max="500" matInput
+            name="container-height" placeholder="height (in px)">
+        </mat-form-field>
+      </div>
+      <div mat-dialog-content class="dialog-input-container pt-1" *ngIf="fontSizeAllowed">
+        <strong>Font Size</strong><br />
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <input type="number" [(ngModel)]="fontSize" class="form-control" min="0" max="100" matInput name="font-size"
+            placeholder="font-size (in px)">
+        </mat-form-field>
+      </div>
+      <div mat-dialog-content class="dialog-input-container pt-1" *ngIf="textAlignAllowed">
+        <strong>Font Weight</strong><br />
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <mat-select [(ngModel)]="fontStyle" name="weight">            
+            <mat-option *ngFor="let option of fontStyles; let x = index" [value]="x">
+              {{option}}
+            </mat-option> 
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div mat-dialog-content class="dialog-input-container pt-1" *ngIf="textAlignAllowed">
+        <strong>Text Align</strong><br />
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <mat-select [(ngModel)]="textAlign" name="text-align">
+            <mat-option value="left">Left</mat-option>
+            <mat-option value="center">Center</mat-option>
+            <mat-option value="right">Right</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>      
+      <div mat-dialog-content class="dialog-input-container pt-1">
+        <strong>Fore Color</strong><br />
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <input matInput [ngxMatColorPicker]="picker" [(ngModel)]="foreColor" name="fore-color">
+          <ngx-mat-color-toggle matSuffix [for]="picker"></ngx-mat-color-toggle>
+          <ngx-mat-color-picker #picker></ngx-mat-color-picker>
+        </mat-form-field>
+      </div>
+      <div mat-dialog-content class="dialog-input-container pt-1" *ngIf="changeBackgroundAllowed">
+        <strong>Background Color</strong><br />
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <input matInput [ngxMatColorPicker]="picker2" [(ngModel)]="backgroundColor"
+            name="back-color">
+          <ngx-mat-color-toggle matSuffix [for]="picker2"></ngx-mat-color-toggle>
+          <ngx-mat-color-picker #picker2></ngx-mat-color-picker>
+        </mat-form-field>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+  <div mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="onSave()" cdkFocusInitial class="pr-1" [disabled]="!f.valid">
+      Done
+    </button>
+    <button mat-raised-button color="primary" type="button" (click)="dataConnect()" [disabled]="!f.valid" *ngIf="dataConnectAllowed">Data
+      Connection</button>
+    <span fxFlex></span>
+    <button mat-button color="warn" type="button" (click)="dialogRef.close(false)">Cancel</button>
+  </div>
+</form>

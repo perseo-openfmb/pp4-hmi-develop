@@ -1,0 +1,32 @@
+<div class="designer-wrapper" fxLayout="column" fxFlexFill>
+  <header fxLayout="row">
+    <app-header-tool
+      fxFlex
+      fxFill      
+      (zoomGraph)="zoomGraph($event)"      
+    ></app-header-tool>
+  </header>
+  <section fxLayout="column" fxFlex fxFill>
+    <mat-drawer-container class="designer-drawer-container" fxFlex fxFill>      
+      <mat-drawer-content fxLayout="column">
+        <div class="editable-area-container" fxLayout="row" fxFlex fxFill>          
+          <div
+            class="canvas-area-wrapper"
+            fxLayout="column"
+            fxFlexFill
+            fxFlex
+            fxFill
+          >
+            <div
+              #graphContainer
+              id="graphContainer"
+              fxLayout="column"
+              fxFlex
+              fxFill
+            ></div>
+          </div>
+        </div>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </section>
+</div>

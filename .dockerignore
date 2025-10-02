@@ -1,0 +1,15 @@
+**.git*
+.cache
+.vscode
+
+**LICENSE
+**README*
+Dockerfile*
+**/*.md
+**/*.log
+
+**/.angular
+**/dist
+**/node_modules
+**/target
+Cargo.lock

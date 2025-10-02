@@ -1,0 +1,41 @@
+<form #f="ngForm">
+  <mat-tab-group mat-align-tabs="start">
+    <mat-tab label="Properties">
+      <div mat-dialog-content class="dialog-input-container pt-1">
+        <strong>Name</strong><br/>
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <input matInput [(ngModel)]="name" placeholder="Enter Name (required)" [disabled]="true" name="symbol-name"/>
+        </mat-form-field>
+      </div>
+      <div mat-dialog-content class="dialog-input-container">
+        <strong>mRID</strong><br/>
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <input matInput [(ngModel)]="mRID" placeholder="Not set" [disabled]="true" name="symbol-mrid"/> 
+        </mat-form-field>  
+      </div>
+      <div mat-dialog-content class="dialog-input-container pt-1" *ngIf="showDescription">
+        <strong>Description</strong><br />
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <input matInput [(ngModel)]="description" placeholder="" [disabled]="true" name="symbol-desc" />
+        </mat-form-field>
+      </div>
+      <div mat-dialog-content class="dialog-input-container pt-1">
+        <strong>Label</strong><br/>
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <input matInput [(ngModel)]="label" placeholder="Enter label" [disabled]="true" name="symbol-label"/>
+        </mat-form-field>
+      </div>         
+      <div *ngIf="hasLastUpdate">
+        <p style="font-size: 8px;">Updated on: {{lastUpdate}}</p>
+      </div>
+    </mat-tab>    
+  </mat-tab-group>
+  <div mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="onClose()" cdkFocusInitial class="pr-1">
+      CLOSE
+    </button>         
+  </div>
+  <div class="pr-1" *ngIf="mRID">
+    <a style="font-size:small;text-decoration:underline;" (click)="onMessageInspector()">Message Inspector</a>
+  </div>
+</form>

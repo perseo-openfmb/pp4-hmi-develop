@@ -1,0 +1,64 @@
+<form #f="ngForm">
+  <mat-tab-group mat-align-tabs="start">
+    <mat-tab label="Control">
+      <div mat-dialog-content class="dialog-input-container pt-1">
+        <strong>Name</strong><br/>
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <input matInput [(ngModel)]="name" placeholder="Enter Name (required)" [disabled]="true" name="symbol-name"/>
+        </mat-form-field>
+      </div>
+      <div mat-dialog-content class="dialog-input-container">
+        <strong>mRID</strong><br/>
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <input matInput [(ngModel)]="mRID" placeholder="Not set" [disabled]="true" name="symbol-mrid"/> 
+        </mat-form-field>  
+      </div>
+      <div mat-dialog-content class="dialog-input-container pt-1" *ngIf="showDescription">
+        <strong>Description</strong><br />
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <input matInput [(ngModel)]="description" placeholder="" [disabled]="true" name="symbol-desc" />
+        </mat-form-field>
+      </div>
+      <div mat-dialog-content class="dialog-input-container pt-1" *ngIf="isSetPoint && isControllable">
+        <strong>Set Analog</strong><br/>
+        <mat-form-field class="designer-form-field" floatLabel='never'>          
+          <input type="number" [(ngModel)]="setpointValue" min="-2147483648" max="2147483647" matInput name="set-point-vallue"
+                  placeholder="Value" />
+        </mat-form-field>
+      </div>
+      <div mat-dialog-content class="dialog-input-container pt-1" *ngIf="isSetBoolean && isControllable">
+        <strong>Set Boolean</strong><br/>
+        <mat-form-field class="designer-form-field" floatLabel='never'>          
+          <mat-select [(value)]="onOffCommand" name="select-on-off">
+            <mat-option *ngFor="let option of onOffs" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>      
+      <div mat-dialog-content class="dialog-input-container pt-1" *ngIf="!isSetPoint && !isSetBoolean && isControllable">
+        <strong>Control Value</strong><br/>
+        <mat-form-field class="designer-form-field" floatLabel='never'>
+          <input matInput [(ngModel)]="controlValue" [disabled]="isControllable" name="control-value"/> 
+        </mat-form-field>
+      </div>
+      <div mat-dialog-content class="dialog-input-container pt-1" *ngIf="!hasDataMapped">
+        <p style="color:red;">No data mapping is defined</p>
+      </div>
+      <div *ngIf="hasLastUpdate">
+        <p style="font-size: 8px;">Updated on: {{lastUpdate}}</p>
+      </div>        
+    </mat-tab>    
+  </mat-tab-group>
+  <div mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="onClose()" cdkFocusInitial class="pr-1" style="width: 120px;">
+      CANCEL
+    </button> 
+    <button mat-raised-button color="red" (click)="onAction()" *ngIf="isControllable" cdkFocusInitial class="pr-1" style="width: 120px;">
+      EXECUTE
+    </button>              
+  </div>
+  <div class="pr-1" *ngIf="mRID">
+    <a style="font-size:small;text-decoration:underline;" (click)="onMessageInspector()">Message Inspector</a>
+  </div>
+</form>
