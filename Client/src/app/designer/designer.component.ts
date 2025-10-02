@@ -679,7 +679,16 @@ export class DesignerComponent implements OnInit, AfterViewInit, OnDestroy {
     const img = this.renderer.createElement('img');
     const title = this.renderer.createElement('div');
     const titleText = this.renderer.createText(data.title);
-    this.renderer.setAttribute(img, 'src', data.image.split('.svg')[0] + '-copy.svg');    
+    // Prefer explicit icon for toolbar preview; otherwise, for SVGs use the "-copy.svg" variant; else fall back to the image itself
+    let previewSrc: string = data.icon || '';
+    if (!previewSrc) {
+      if (typeof data.image === 'string' && data.image.endsWith('.svg')) {
+        previewSrc = data.image.split('.svg')[0] + '-copy.svg';
+      } else {
+        previewSrc = data.image;
+      }
+    }
+    this.renderer.setAttribute(img, 'src', previewSrc);
     this.renderer.addClass(wrapper, 'toolbar-wrapper');
     this.renderer.addClass(img, 'toolbar-image');
     this.renderer.addClass(title, 'toolbar-title');

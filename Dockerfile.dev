@@ -1,0 +1,19 @@
+FROM rust:1.81.0-alpine3.20
+
+WORKDIR /app
+
+RUN apk update && apk add --no-cache \
+    build-base \
+    linux-headers \
+    libressl-dev \
+    protobuf-dev \
+    nodejs \
+    yarn
+
+# Instala dependencias solo una vez
+COPY Cargo.toml .
+COPY Client/package.json Client/yarn.lock ./Client/
+RUN yarn --cwd Client install
+
+# Luego montas todo el código como volumen desde el host
+CMD ["cargo", "run", "--bin", "hmi_server"]
