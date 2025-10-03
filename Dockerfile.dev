@@ -1,19 +1,37 @@
-FROM rust:1.81.0-alpine3.20
-
-WORKDIR /app
-
+# Stage 1: Build the Rust backend
+FROM rustlang/rust:nightly-alpine3.20 AS backend-build
+WORKDIR /openfmb.hmi
+COPY Cargo.toml ./
+COPY Server/ ./Server
 RUN apk update && apk add --no-cache \
     build-base \
     linux-headers \
     libressl-dev \
-    protobuf-dev \
-    nodejs \
-    yarn
+    protobuf-dev
+RUN cargo build --release
 
-# Instala dependencias solo una vez
-COPY Cargo.toml .
-COPY Client/package.json Client/yarn.lock ./Client/
-RUN yarn --cwd Client install
+# Stage 2: Build the Node.js frontend
+FROM node:18.20.7-alpine3.20 AS frontend-build
+WORKDIR /Client
+# Copy package files first to leverage Docker cache
+COPY Client/package.json Client/yarn.lock* ./
+RUN yarn config set network-timeout 600000 -g && \
+    yarn config set network-concurrency 2 -g
+RUN yarn install --frozen-lockfile
+# Copy the rest of the source code and build
+COPY Client/ .
+RUN yarn run build
 
-# Luego montas todo el código como volumen desde el host
-CMD ["cargo", "run", "--bin", "hmi_server"]
+# Stage 3: Create the final, minimal image
+FROM alpine:3.20 AS final
+WORKDIR /hmi_server
+# Copy the built frontend artifacts
+COPY --from=frontend-build /Client/dist ./Client/dist
+# Copy the compiled Rust binary
+COPY --from=backend-build /openfmb.hmi/target/release/hmi_server ./
+# Install any necessary runtime libraries (e.g., SSL)
+RUN apk update && apk add --no-cache libgcc
+# Expose the port your server uses
+EXPOSE 32771
+# Specify the entrypoint correctly
+ENTRYPOINT ["./hmi_server"]

@@ -1,0 +1,28 @@
+[
+  {
+    "id": "open-properties",
+    "label": "Editar propiedades",
+    "action": "openProperties"
+  },
+  {
+    "id": "duplicate",
+    "label": "Duplicar",
+    "action": "duplicate"
+  },
+  {
+    "id": "toggle-fill",
+    "label": "Alternar fondo",
+    "action": "toggleFill",
+    "params": { "color": "#f5f5f5" }
+  },
+  {
+    "id": "copy-style",
+    "label": "Copiar estilo",
+    "action": "copyStyle"
+  },
+  {
+    "id": "paste-style",
+    "label": "Pegar estilo",
+    "action": "pasteStyle"
+  }
+]
