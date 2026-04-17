@@ -38,6 +38,9 @@ export class WebSocketService implements WebsocketService, OnDestroy {
   // Number of reconnect attempts
   private reconnectAttempts: number;
 
+  // Session used to reconnect without mutating the websocket URL
+  private sessionId: string;
+
   // Synchronous helper for connection status
   private isConnected: boolean;
 
@@ -85,7 +88,8 @@ export class WebSocketService implements WebsocketService, OnDestroy {
 
   // Makes WebSocket connection
   public connect(sessionId: string) {
-    this.config.url = this.wsConfig.url + sessionId;
+    this.sessionId = sessionId;
+    this.config.url = this.wsConfig.url + this.sessionId;
     this.websocket$ = new WebSocketSubject(this.config);    
     this.websocket$.subscribe(
       (message) => {        
@@ -104,7 +108,7 @@ export class WebSocketService implements WebsocketService, OnDestroy {
       .pipe(takeWhile((v, index) => !this.websocket$));
 
     this.reconnection$.subscribe(
-      () => this.connect(this.config.url),
+      () => this.connect(this.sessionId),
       null,
       () => {
         this.reconnection$ = null;
