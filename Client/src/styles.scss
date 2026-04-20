@@ -85,8 +85,24 @@ body {
   z-index: 10;
   cursor: grab;
   .toolbar-image {
-    width: 40px;
-    height: 40px;
+    /* Usar dimensiones naturales y solo limitar: evita blur por escalado forzado */
+    max-width: 40px;
+    max-height: 40px;
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Preserva relación de aspecto sin distorsión */
+    display: block;
+    image-rendering: auto; /* Base para SVG y formatos vectoriales */
+    -ms-interpolation-mode: nearest-neighbor; /* IE legacy (inofensivo en otros) */
+  }
+  /* Optimización específica para PNG: evita suavizado que hace ver borroso al reducir */
+  .toolbar-image[src$=".png"],
+  .toolbar-image[src*=".png?"] {
+    image-rendering: -webkit-optimize-contrast; /* Mejora nitidez en WebKit */
+    image-rendering: crisp-edges; /* Estándar cuando está soportado */
+    image-rendering: pixelated; /* Fallback: algunos navegadores */
+    /* Truco: forzar que el navegador use el bitmap original y luego limitarlo por CSS */
+    /* Si la imagen fuente es mayor (ej: 100x100) se verá más nítida en 40x40 */
   }
   .toolbar-title {
     margin-top: 0.25rem;

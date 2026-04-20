@@ -1,0 +1,86 @@
+name: openfmb-pp4-integrated
+
+services:
+
+  # --- Sus servicios existentes ---
+  nats:
+    image: nats
+    container_name: nats
+    ports:
+      - "4222:4222"
+    expose:
+      - "4222"
+    networks:
+      - openfmb
+
+  adapter:
+    image: oesinc/openfmb.adapters:a30d1d0
+    container_name: adapter
+    depends_on:
+      nats:
+        condition: service_started
+    volumes:
+      - ./config_yaml:/cfg
+      - ./modbus-master:/modbus-master
+    command: -c /cfg/adapter.yaml
+    # ports:
+    #   - "2626:2626"
+    #   - "2627:2627"
+    networks:
+      - openfmb
+
+  # grafana:
+  #   image: grafana/grafana:11.5.1
+  #   depends_on:
+  #     timescaledb:
+  #       condition: service_healthy
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - grafana-data:/var/lib/grafana
+  #   networks:
+  #     - openfmb
+
+  timescaledb:
+    image: timescale/timescaledb:latest-pg12-oss
+    container_name: timescaledb
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: openfmb
+    volumes:
+      - timescaledb-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    networks:
+      - openfmb
+
+  # --- Servicio nuevo ---
+  openfmb-hmi:
+    image: openfmb-hmi:latest
+    container_name: hmi
+    ports:
+      - "32771:32771"
+    environment:
+      - APP_CONF=/cfg/app.toml
+      - APP_DIR_NAME=/cfg
+    volumes:
+      - ./config:/cfg                 # carpeta config/ del repositorio
+    depends_on:
+      nats:
+        condition: service_started
+    networks:
+      - openfmb
+
+networks:
+  openfmb:
+    driver: bridge
+
+volumes:
+  grafana-data:
+  timescaledb-data:
