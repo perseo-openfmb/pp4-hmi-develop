@@ -10,8 +10,8 @@ log-level = "Debug" # Off, Error, Info, Debug, Trace
 server_port = 32771
 
 [nats]
-prod_uri = "nats:4222"
-dev_uri = "nats:4222"
+prod_uri = "nats_dev:4222"
+dev_uri = "nats_dev:4222"
 # server_id = "741df6b5-5bdd-4ea6-a6aa-541fba744721"
 # authentication_type = "creds"
 # creds = "meter.creds"
