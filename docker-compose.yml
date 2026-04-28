@@ -63,6 +63,7 @@ services:
   # --- Servicio nuevo ---
   openfmb-hmi:
     image: openfmb-hmi:latest
+    # image: oesinc/openfmb.hmi:v2.1.0
     container_name: hmi_dev
     ports:
       - "32771:32771"
