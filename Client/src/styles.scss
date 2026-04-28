@@ -124,6 +124,12 @@ body {
   }
 }
 
+.grafana-modal-panel .mat-dialog-container {
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+}
+
 foreignObject > div {
   align-items: unset!important;
 }

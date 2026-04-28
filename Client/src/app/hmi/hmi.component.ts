@@ -23,6 +23,7 @@ import { SwitchgearDialogComponent } from './dialogs/switchgear-dialog/switchgea
 import { RegulatorDialogComponent } from './dialogs/regulator-dialog/regulator-dialog.component';
 import { ControlDialogComponent } from './dialogs/control-dialog/control-dialog.component'
 import { GenericDialogComponent } from './dialogs/generic-dialog/generic-dialog.component'
+import { GrafanaDialogComponent } from './dialogs/grafana-dialog/grafana-dialog.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import toolbarItemsData from '../../assets/json/toolbar.json';
 import * as fromRoot from '../store/reducers/index';
@@ -640,16 +641,35 @@ export class HmiComponent implements OnInit, AfterViewInit, OnDestroy {
 
     // enable right click popup.
     this.graph.popupMenuHandler.factoryMethod = (menu: mxgraph.mxPopupMenu, cell: mxgraph.mxCell, evt: Event) => {
-      if (this.mode === this.DESIGNER_CONST.SELECT_MODE) {
-        if (cell && cell.vertex) {
-          menu.addItem('Remove', null, () => {
-            this.graph.removeCells();
+      const measureBoxCell = this.resolveMeasureBoxCell(cell, evt);
+      if (measureBoxCell) {
+        const currentCellData = this.graph.model.getValue(measureBoxCell).userObject;
+        const mappedVariables = Array.isArray(currentCellData?.displayData)
+          ? currentCellData.displayData.filter(item => item?.path)
+          : [];
+
+        if (!currentCellData?.mRID) {
+          menu.addItem('Device has no mRID assigned', null, () => {
+            this.snack.open('Unable to open Grafana chart. This measure box has no mRID.', 'OK', { duration: 3000 });
           });
-        } else if (cell && cell.edge) {
-          menu.addItem('Remove', null, () => {
-            this.graph.removeCells();
-          });
+          return;
         }
+
+        if (mappedVariables.length === 0) {
+          menu.addItem('No mapped variables', null, () => {
+            this.snack.open('No mapped variables were found for this measure box.', 'OK', { duration: 3000 });
+          });
+          return;
+        }
+
+        menu.addItem('Mapped variables', null, () => {});
+        menu.addSeparator();
+        mappedVariables.forEach(variable => {
+          const variableLabel = variable.label || variable.name || variable.path;
+          menu.addItem(variableLabel, null, () => {
+            this.openGrafanaDialog(currentCellData.mRID, variable.path, variableLabel);
+          });
+        });
       }
     };
 
@@ -676,6 +696,37 @@ export class HmiComponent implements OnInit, AfterViewInit, OnDestroy {
       }
     }
     return false; 
+  }
+
+  private resolveMeasureBoxCell(cell: mxgraph.mxCell, evt: Event): mxgraph.mxCell | null {
+    const candidates: mxgraph.mxCell[] = [];
+    if (cell) {
+      candidates.push(cell);
+    }
+
+    const selectedCell = this.graph?.getSelectionCell();
+    if (selectedCell) {
+      candidates.push(selectedCell);
+    }
+
+    const mouseEvent = evt as MouseEvent;
+    if (typeof mouseEvent?.offsetX === 'number' && typeof mouseEvent?.offsetY === 'number') {
+      const pointedCell = this.graph.getCellAt(mouseEvent.offsetX, mouseEvent.offsetY);
+      if (pointedCell) {
+        candidates.push(pointedCell);
+      }
+    }
+
+    for (const candidate of candidates) {
+      let current = candidate;
+      while (current) {
+        if (this.isMeasureBox(current)) {
+          return current;
+        }
+        current = this.graph.getModel().getParent(current) as mxgraph.mxCell;
+      }
+    }
+    return null;
   }  
 
   // change selection mode.
@@ -753,6 +804,23 @@ export class HmiComponent implements OnInit, AfterViewInit, OnDestroy {
       }
     });
   }    
+
+  private openGrafanaDialog(deviceMrid: string, variablePath: string, variableLabel: string): void {
+    this.dialog.open(GrafanaDialogComponent, {
+      width: '92vw',
+      maxWidth: '1200px',
+      height: '86vh',
+      hasBackdrop: true,
+      disableClose: true,
+      autoFocus: false,
+      panelClass: 'grafana-modal-panel',
+      data: {
+        title: variableLabel,
+        deviceMrid: deviceMrid,
+        variablePath: variablePath
+      }
+    });
+  }
 
   openSwitchgearDialog(x: number, y: number, cell: mxgraph.mxCell) : void {
     const currentCellData = this.graph.model.getValue(cell).userObject;

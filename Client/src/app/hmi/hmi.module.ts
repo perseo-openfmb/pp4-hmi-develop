@@ -14,6 +14,7 @@ import { SwitchgearDialogComponent } from './dialogs/switchgear-dialog/switchgea
 import { RegulatorDialogComponent } from './dialogs/regulator-dialog/regulator-dialog.component';
 import { GenericDialogComponent } from './dialogs/generic-dialog/generic-dialog.component';
 import { ControlDialogComponent } from './dialogs/control-dialog/control-dialog.component';
+import { GrafanaDialogComponent } from './dialogs/grafana-dialog/grafana-dialog.component';
 import { SharedMaterialModule } from '../shared/shared-material.module';
 
 @NgModule({
@@ -24,7 +25,8 @@ import { SharedMaterialModule } from '../shared/shared-material.module';
         SwitchgearDialogComponent,
         RegulatorDialogComponent,
         ControlDialogComponent,
-        GenericDialogComponent
+        GenericDialogComponent,
+        GrafanaDialogComponent
     ],
     imports: [
         CommonModule,

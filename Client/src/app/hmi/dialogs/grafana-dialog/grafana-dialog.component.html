@@ -1,0 +1,31 @@
+<div class="grafana-dialog">
+  <div class="grafana-dialog-header">
+    <h2>{{title}}</h2>
+    <button mat-icon-button type="button" (click)="onClose()" aria-label="Close chart">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <div class="grafana-query-controls">
+    <div class="grafana-query-meta">
+      <span><strong>Device UUID:</strong> {{deviceMrid}}</span>
+      <span *ngIf="variablePath"><strong>Mapped variable:</strong> {{variablePath}}</span>
+    </div>
+    <label for="grafana-query-input">SQL Query</label>
+    <textarea id="grafana-query-input" [(ngModel)]="query"></textarea>
+    <div class="grafana-time-row">
+      <mat-form-field appearance="outline">
+        <mat-label>From</mat-label>
+        <input matInput [(ngModel)]="from" placeholder="now-6h">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>To</mat-label>
+        <input matInput [(ngModel)]="to" placeholder="now">
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="button" (click)="applyQuery()">Apply</button>
+      <button mat-stroked-button color="primary" type="button" (click)="resetQuery()">Reset</button>
+    </div>
+  </div>
+
+  <iframe [src]="safeUrl" title="Grafana chart"></iframe>
+</div>
