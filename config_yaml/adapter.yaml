@@ -36,13 +36,13 @@ plugins:
         session-name: SessionMeter1
         overrides:
           - key: profiles[0].mapping.meter.conductingEquipment.mRID.value
-            value: 00000000-0000-0000-0000-000000000001
+            value: 00000000-0000-0000-0000-000000000002
           - key: remote-ip
-            value: 172.17.0.1
+            value: 192.168.0.10
           - key: unit-identifier
-            value: 2
+            value: 24
           - key: port
-            value: 5050
+            value: 26
   modbus-outstation:
     enabled: false
     thread-pool-size: 1

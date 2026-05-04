@@ -11,12 +11,12 @@
       <span><strong>Device UUID:</strong> {{deviceMrid}}</span>
       <span *ngIf="variablePath"><strong>Mapped variable:</strong> {{variablePath}}</span>
     </div>
-    <label for="grafana-query-input">SQL Query</label>
-    <textarea id="grafana-query-input" [(ngModel)]="query"></textarea>
+    <!-- <label for="grafana-query-input">SQL Query</label>
+    <textarea id="grafana-query-input" [(ngModel)]="query"></textarea> -->
     <div class="grafana-time-row">
       <mat-form-field appearance="outline">
         <mat-label>From</mat-label>
-        <input matInput [(ngModel)]="from" placeholder="now-6h">
+        <input matInput [(ngModel)]="from" placeholder="now-15m">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>To</mat-label>
