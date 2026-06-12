@@ -31,18 +31,19 @@ plugins:
     enabled: true
     thread-pool-size: 6
     sessions:
-      - path: modbus-master/modbus-meter.yaml
-        local-path: modbus-master/modbus-meter.yaml
-        session-name: SessionMeter1
+      - path: modbus-master/modbus-meter-siemens.yaml
+        local-path: modbus-master/modbus-meter-siemens.yaml
+        session-name: SessionMeterSiemens2
         overrides:
           - key: profiles[0].mapping.meter.conductingEquipment.mRID.value
-            value: 00000000-0000-0000-0000-000000000002
+            value: 00000001-0004-0020-0000-000000000001
           - key: remote-ip
-            value: 192.168.0.10
+            value: 192.168.0.8
           - key: unit-identifier
-            value: 24
+            value: 13
           - key: port
-            value: 26
+            value: 26  
+
   modbus-outstation:
     enabled: false
     thread-pool-size: 1
