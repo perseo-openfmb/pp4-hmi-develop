@@ -933,6 +933,16 @@ export class DesignerComponent implements OnInit, AfterViewInit, OnDestroy {
     mxConstants.DEFAULT_HOTSPOT = 1;
   }
 
+  //private method for autozoom
+  private applyAutoZoom() {
+  if (this.graph) {
+    
+    this.graph.fit(0, false);
+    // console.log("Applying auto zoom...");
+    this.graph.center(true, true);
+  }
+}
+
   // open property popup
   openDialog(x: number, y: number, cell: mxgraph.mxCell): void {
     const currentCellData = this.graph.model.getValue(cell)?.userObject;  
@@ -1139,7 +1149,10 @@ export class DesignerComponent implements OnInit, AfterViewInit, OnDestroy {
               dec.decode(xml.documentElement, this.graph.getModel());                            
             }
             finally {
-              this.graph.getModel().endUpdate();              
+              this.graph.getModel().endUpdate();
+              
+              //autozoom
+              this.applyAutoZoom();
             }
           }
         }

@@ -67,7 +67,7 @@ plugins:
   nats:
     enabled: true
     max-queued-messages: 1000
-    connect-url: nats://nats:4222
+    connect-url: nats://nats_dev:4222
     connect-retry-seconds: 2
     security:
       security-type: none
@@ -77,7 +77,7 @@ plugins:
     subscribe: []
   timescaledb:
     enabled: true
-    database-url: postgresql://postgres:password@timescaledb:5432/openfmb
+    database-url: postgresql://postgres:password@timescaledb_dev:5432/openfmb
     store-measurement: true
     table-name: data
     store-raw-message: true

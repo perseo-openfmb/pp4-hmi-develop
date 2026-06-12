@@ -158,7 +158,7 @@ export class HmiComponent implements OnInit, AfterViewInit, OnDestroy {
     }; 
     
     this.dialog.closeAll();
-    this.graph.setPanning(false);
+    this.graph.setPanning(true);
     this.graph.setConnectable(false);
     this.graph.getSelectionModel().clear();
     this.graph.setCellsSelectable(false);
@@ -766,6 +766,13 @@ export class HmiComponent implements OnInit, AfterViewInit, OnDestroy {
     edgeStyle[mxConstants.STYLE_STROKEWIDTH] = '2';
   }
 
+  private applyAutoZoom() {
+  if (this.graph) {
+    this.graph.fit(20, false);
+    this.graph.center(true, false);
+  }
+}
+
   // open property popup
   openDialog(x: number, y: number, cell: mxgraph.mxCell): void {
     const currentCellData = this.graph.model.getValue(cell).userObject;
@@ -1330,6 +1337,9 @@ export class HmiComponent implements OnInit, AfterViewInit, OnDestroy {
         catch (e) {
           console.error(e);
         }
+        finally {
+          this.applyAutoZoom();
+        }        
         try {
           if (this.currentDiagram.backgroundColor && this.currentDiagram.backgroundColor.length > 0) {
             this.graphContainer.nativeElement.style.backgroundColor = this.currentDiagram.backgroundColor;
@@ -1337,7 +1347,7 @@ export class HmiComponent implements OnInit, AfterViewInit, OnDestroy {
         }
         catch (e) {
           console.error(e);
-        }
+        } 
       },
       error => {
         console.error(error);

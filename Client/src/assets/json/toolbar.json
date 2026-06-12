@@ -1450,5 +1450,395 @@
     "left": 0,
     "top": 0,
     "type": ""
+  },
+
+  
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/UdeA_Year.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 100,
+    "height": 50,
+    "title": "UdeA Year",
+    "left": 0,
+    "top": 0,
+    "type": "UdeA"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/UdeA_Name.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 200,
+    "height": 60,
+    "title": "UdeA Name",
+    "left": 0,
+    "top": 0,
+    "type": "UdeA"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/UdeA_Logo-Year-No-Title-Color.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 100,
+    "height": 100,
+    "title": "UdeA Logo With Year No Title with Color",
+    "left": 0,
+    "top": 0,
+    "type": "UdeA"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/UdeA_Logo-Full-Color.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 100,
+    "height": 100,
+    "title": "UdeA Logo Full Color",
+    "left": 0,
+    "top": 0,
+    "type": "UdeA"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/UdeA_Logo-Full-BW.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 100,
+    "height": 100,
+    "title": "UdeA Logo Full Black-White",
+    "left": 0,
+    "top": 0,
+    "type": "UdeA"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/UdeA_GITA.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 100,
+    "height": 100,
+    "title": "UdeA GITA Logo",
+    "left": 0,
+    "top": 0,
+    "type": "UdeA"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/UdeA_Gimel.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 100,
+    "height": 100,
+    "title": "UdeA Gimel Logo",
+    "left": 0,
+    "top": 0,
+    "type": "UdeA"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/UdeA_Potencia-y-Tecnologias-Incorporadas.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 180,
+    "height": 100,
+    "title": "Potencia y Tecnologias Incorporadas Logo",
+    "left": 0,
+    "top": 0,
+    "type": "UdeA"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/UdeA_Name-Microrred-Sede-Oriente.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 600,
+    "height": 160,
+    "title": "Name Microrred Sede Oriente",
+    "left": 0,
+    "top": 0,
+    "type": "UdeA"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/UdeA_Haceb-White-Green.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 100,
+    "height": 100,
+    "title": "Haceb White Green Logo",
+    "left": 0,
+    "top": 0,
+    "type": "UdeA"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/UdeA_Haceb-Green.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 160,
+    "height": 110,
+    "title": "Haceb Green Logo",
+    "left": 0,
+    "top": 0,
+    "type": "UdeA"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/UdeA_Haceb-BW.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 100,
+    "height": 50,
+    "title": "Haceb Black-Whit Logo",
+    "left": 0,
+    "top": 0,
+    "type": "UdeA"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/UdeA_CELSIA.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 100,
+    "height": 100,
+    "title": "CELSIA Logo",
+    "left": 0,
+    "top": 0,
+    "type": "UdeA"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/UdeA_Aliados-al-Proyecto-Name.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 520,
+    "height": 40,
+    "title": "Aliados al Proyecto Name",
+    "left": 0,
+    "top": 0,
+    "type": "UdeA"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/UdeA_Promigas.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 200,
+    "height": 100,
+    "title": "Promigas Logo",
+    "left": 0,
+    "top": 0,
+    "type": "UdeA"
+  },
+
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/UdeA_logo-iupb.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 200,
+    "height": 100,
+    "title": "Logo IUPB",
+    "left": 0,
+    "top": 0,
+    "type": "UdeA"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/UdeA_logo-universidad-del-choco.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 200,
+    "height": 100,
+    "title": "U Choco Logo",
+    "left": 0,
+    "top": 0,
+    "type": "UdeA"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/UdeA_name-microrred-1.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 200,
+    "height": 100,
+    "title": "UdeA Name Microrred-1",
+    "left": 0,
+    "top": 0,
+    "type": "UdeA"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/UdeA_decoration-1.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 200,
+    "height": 100,
+    "title": "UdeA decoration-1",
+    "left": 0,
+    "top": 0,
+    "type": "UdeA"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/UdeA_Interfaz-01.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 3000,
+    "height": 1600,
+    "title": "UdeA Interfaz-01",
+    "left": 0,
+    "top": 0,
+    "type": "UdeA"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/UdeA_logo-simbolo-horizontal.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 200,
+    "height": 100,
+    "title": "UdeA logo simbolo horizontal",
+    "left": 0,
+    "top": 0,
+    "type": "UdeA"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/UdeA_name-perseo-project.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 200,
+    "height": 100,
+    "title": "UdeA name perseo project",
+    "left": 0,
+    "top": 0,
+    "type": "UdeA"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/UdeA_word-Aliados-whiteBG.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 200,
+    "height": 100,
+    "title": "UdeA word Aliados whiteBG",
+    "left": 0,
+    "top": 0,
+    "type": "UdeA"
+  },
+  {
+    "shape": "image",
+    "image": "assets/images/toolbar/UdeA_decoration-2.svg",
+    "points": [
+      [1, 0.5],
+      [0, 0.5],
+      [0.5, 0],
+      [0.5, 1]
+    ],
+    "width": 200,
+    "height": 100,
+    "title": "UdeaA decoration-2",
+    "left": 0,
+    "top": 0,
+    "type": "UdeA"
   }
+
 ]
+
+

@@ -5,17 +5,17 @@ services:
   # --- Sus servicios existentes ---
   nats:
     image: nats
-    container_name: nats
+    container_name: nats_dev
     ports:
       - "4222:4222"
     expose:
       - "4222"
     networks:
-      - openfmb
+      - openfmb_dev
 
   adapter:
     image: oesinc/openfmb.adapters:a30d1d0
-    container_name: adapter
+    container_name: adapter_dev
     depends_on:
       nats:
         condition: service_started
@@ -27,7 +27,7 @@ services:
     #   - "2626:2626"
     #   - "2627:2627"
     networks:
-      - openfmb
+      - openfmb_dev
 
   grafana:
     image: grafana/grafana:11.5.1
@@ -51,7 +51,7 @@ services:
 
   timescaledb:
     image: timescale/timescaledb:latest-pg12-oss
-    container_name: timescaledb
+    container_name: timescaledb_dev
     ports:
       - "5432:5432"
     environment:
@@ -66,12 +66,13 @@ services:
       retries: 5
       start_period: 20s
     networks:
-      - openfmb
+      - openfmb_dev
 
   # --- Servicio nuevo ---
   openfmb-hmi:
     image: openfmb-hmi:latest
-    container_name: hmi
+    # image: oesinc/openfmb.hmi:v2.1.0
+    container_name: hmi_dev
     ports:
       - "32771:32771"
     environment:
@@ -83,7 +84,7 @@ services:
       nats:
         condition: service_started
     networks:
-      - openfmb
+      - openfmb_dev
 
   # reverse-proxy:
   #   image: nginx:1.27-alpine
@@ -99,7 +100,7 @@ services:
   #     - openfmb
 
 networks:
-  openfmb:
+  openfmb_dev:
     driver: bridge
 
 volumes:
