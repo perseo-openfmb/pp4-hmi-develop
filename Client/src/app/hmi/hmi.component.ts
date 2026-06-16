@@ -814,9 +814,9 @@ export class HmiComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private openGrafanaDialog(deviceMrid: string, variablePath: string, variableLabel: string): void {
     this.dialog.open(GrafanaDialogComponent, {
-      width: '92vw',
-      maxWidth: '1200px',
-      height: '86vh',
+      width: '50vw',
+      maxWidth: '760px',
+      height: '40vh',
       hasBackdrop: true,
       disableClose: true,
       autoFocus: false,
